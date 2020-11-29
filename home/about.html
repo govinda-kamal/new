@@ -1,0 +1,16 @@
+{% extends 'basic.html' %}
+
+{% block title %} About {% endblock title %}
+{% block aboutactive %}active{% endblock aboutactive %}
+
+<!-- adding style or css -->
+{% block style %} 
+     <style>
+        .st{
+            background-color: red;
+        }
+     </style>
+{% endblock style %}
+{% block body %}
+     <h1 class="st" >This is about page</h1>
+{% endblock body %}

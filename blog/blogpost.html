@@ -1,0 +1,38 @@
+{% extends 'basic.html' %}
+
+{% block title %} BlogPost {% endblock title %}
+
+{% block stylecss %} 
+   <style>
+        .container{
+                    background-color: yellow;
+        }
+        .blog-post-title{
+            color: red;
+            font-size: 100px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-decoration: underline;
+        }
+        .blog-post-meta{
+            color: blue;
+            font-size: 50px;
+            font-style: italic;
+            text-decoration: underline;
+        }
+        p{
+            color: blue;
+            font-size: 30px;
+        }
+   </style>
+{% endblock stylecss %}
+
+{% block body %}
+
+    <div class="container">
+      <h2 class="blog-post-title" >{{post.Title}}</h2>
+      <p class="blog-post-meta" ><a href="/about">{{post.Author}}</a></p>
+ <hr>
+      <p>{{post.Content}}.</p>
+      <hr>
+
+{% endblock body %}

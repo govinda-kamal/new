@@ -1,0 +1,39 @@
+{% extends 'basic.html' %}
+
+{% block title %} Search results {% endblock title %}
+{% block body %}
+
+<div class="container mb-7">
+    <h1>SEARCH RESULTS : </h1>
+    {% if allpost|length < 1 %}
+        <p class="display2"> Your search - <b>{{query}} </b>- </p>
+        <p class="display2">was not found from any documents</p>
+       <br> Suggestions
+        <ul>
+         <li> Check that all words are spelled correctly.</li>
+         <li>Try entering other keywords.</li>
+         <li>Try adding more general keywords.</li>
+         <li>Try entering fewer keywords.</li>
+        </ul>
+    {% endif %}
+    {% for post in allpost %}
+    <div class="card name my-4" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{post.Title}}</h5>
+              <p class="card-text">{{post.Content|truncatechars:500}}</p>  <!--truncate:500 means display only 500 characters of content-->
+              <p class="card-text"><small class="text-muted">{{post.Author}}</small></p>
+              <a href="/blog/{{post.slug}}" role="button" class="btn btn-success my-2 mx-2">Continue reading</a>   <!--  1. /blogpost === locathost/blogpost it mean if we write / 1st then url then it will do like locatahost/url 2. blogpost or blogpost/ === locathost/blog/blogpost  and if we dont write / 1st then it will continue like localhost/current_url/our_new_url -->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="..." class="card-img" alt="...">
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+</div>
+
+
+{% endblock body %}
